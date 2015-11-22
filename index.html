@@ -11,7 +11,7 @@
             var reader = new FileReader();
             
             reader.onload = function (e) {
-               var img = $('<img id="dynamic" style="width:100px;height:100px;">'); 
+               var img = $('<img id="dynamic" >'); 
 img.attr('src', e.target.result);
 img.appendTo('#form1');  
             }
