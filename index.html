@@ -3,13 +3,38 @@
   <head>
     <meta charset="UTF-8">
     <title>Preview-input-file-image by RatanPaul</title>
-    
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <style>
+     .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+     </style>
   </head>
   <body>
  
 
     <form id="form1" runat="server">
-        <input type='file' id="imgInp" multiple/>
+       <span class="btn btn-primary  btn-file">
+          <i class="glyphicon glyphicon-plus"></i>
+          <span>Add files...</span>
+          <input type='file' id="imgInp" multiple/>
+       </span>
     </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script>
@@ -20,8 +45,8 @@
             
             reader.onload = function (e) {
                var img = $('<img id="dynamic" style="width:100px;height:100px;" >'); 
-img.attr('src', e.target.result);
-img.appendTo('#form1');  
+              img.attr('src', e.target.result);
+              img.appendTo('#form1');  
             }
             
             reader.readAsDataURL(input.files[i]);
