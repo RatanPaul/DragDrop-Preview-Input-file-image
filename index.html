@@ -1,0 +1,33 @@
+<html>
+<haed>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+ function readURL(input) {
+        for(var i =0; i< input.files.length; i++){
+        if (input.files[i]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+               var img = $('<img id="dynamic">'); //Equivalent:          $(document.createElement('img'))
+img.attr('src', e.target.result);
+img.appendTo('#form1');  
+                //$('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[i]);
+        }
+        }
+        
+    }
+    
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+</script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <input type='file' id="imgInp" multiple/>
+    </form>
+</body>
+</html>
